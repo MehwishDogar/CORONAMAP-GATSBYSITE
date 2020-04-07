@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 const Header = () => {
   return (
     <header>
-      <p>LATEST UPDATE OF COVID_19 Cases</p>
+      <p>LATEST UPDATE OF COVID-19 Cases</p>
     </header>
   );
 };
