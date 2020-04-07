@@ -50,6 +50,8 @@ const IndexPage = () => {
             cases: country.cases,
             deaths: country.deaths,
             recovered: country.recovered,
+            active: country.active,
+            critical: country.critical,
           },
           geometry: {
             type: "Point",
@@ -65,7 +67,15 @@ const IndexPage = () => {
         let updatedFormatted;
         let casesString;
 
-        const { country, updated, cases, deaths, recovered } = properties;
+        const {
+          country,
+          updated,
+          cases,
+          deaths,
+          recovered,
+          active,
+          critical,
+        } = properties;
 
         casesString = `${cases}`;
 
@@ -83,6 +93,8 @@ const IndexPage = () => {
             <h2>${country}</h2>
             <ul>
               <li><strong>Confirmed:</strong> ${cases}</li>
+              <li><strong>Active:</strong> ${active}</li>
+              <li><strong>Critical:</strong> ${critical}</li>
               <li><strong>Deaths:</strong> ${deaths}</li>
               <li><strong>Recovered:</strong> ${recovered}</li>
               <li><strong>Last Update:</strong> ${updatedFormatted}</li>
