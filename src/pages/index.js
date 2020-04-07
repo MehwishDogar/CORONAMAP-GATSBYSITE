@@ -12,7 +12,7 @@ const LOCATION = {
   lng: 0,
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
-const DEFAULT_ZOOM = 2;
+const DEFAULT_ZOOM = 4;
 
 const IndexPage = () => {
   /**
@@ -45,7 +45,11 @@ const IndexPage = () => {
         return {
           type: "Feature",
           properties: {
-            country,
+            country: country.country,
+            updated: country.updated,
+            cases: country.cases,
+            deaths: country.deaths,
+            recovered: country.recovered,
           },
           geometry: {
             type: "Point",
@@ -54,6 +58,7 @@ const IndexPage = () => {
         };
       }),
     };
+
     const geoJsonLayers = new L.GeoJSON(geoJson, {
       pointToLayer: (feature = {}, latlng) => {
         const { properties = {} } = feature;
@@ -110,24 +115,10 @@ const IndexPage = () => {
   return (
     <Layout pageName="home">
       <Helmet>
-        <title>Home Page</title>
+        <title>COVID-19 CASES</title>
       </Helmet>
 
       <Map {...mapSettings}></Map>
-
-      <Container type="content" className="text-center home-start">
-        <h2>Still Getting Started?</h2>
-        <p>Run the following in your terminal!</p>
-        <pre>
-          <code>
-            gatsby new [directory]
-            https://github.com/colbyfayock/gatsby-starter-leaflet
-          </code>
-        </pre>
-        <p className="note">
-          Note: Gatsby CLI required globally for the above command
-        </p>
-      </Container>
     </Layout>
   );
 };

@@ -1,8 +1,7 @@
 header {
-
   width: 100%;
   color: $white;
-  background-color: $gatsby-purple;
+  background-image: linear-gradient(to right, $red-A700, $red-800);
 
   .container {
     display: flex;
@@ -25,13 +24,13 @@ header {
     display: block;
     color: lighten($gatsby-purple, 50);
     text-decoration: none;
-    padding: 0 .5em;
+    padding: 0 0.5em;
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 32px;
     font-weight: bold;
-    margin: 0;
+    margin: 5px;
+    text-align: center;
   }
-
 }
