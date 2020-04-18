@@ -4,7 +4,6 @@ import L from "leaflet";
 import axios from "axios";
 
 import Layout from "components/Layout";
-import Container from "components/Container";
 import Map from "components/Map";
 
 const LOCATION = {
@@ -25,7 +24,7 @@ const IndexPage = () => {
     let response;
 
     try {
-      response = await axios.get("https://corona.lmao.ninja/countries");
+      response = await axios.get("https://corona.lmao.ninja/v2/countries");
     } catch (e) {
       console.log(`Failed to fetch countries: ${e.message}`, e);
       return;
